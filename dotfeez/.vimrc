@@ -10,6 +10,9 @@
     Bundle 'altercation/vim-colors-solarized'
     Bundle 'Lokaltog/vim-powerline'
     Bundle 'Lokaltog/vim-easymotion'
+    Bundle 'vim-scripts/taglist.vim'
+    Bundle 'vim-scripts/cscope.vim'
+    Bundle 'derekwyatt/vim-fswitch.git'
 
     filetype plugin indent on
 
@@ -77,12 +80,12 @@ augroup filetype_htm
     autocmd FileType html nnoremap <buffer> <localleader>f Vatzf
 augroup END
 
-" Vimscript file settings ------------------------------------------------ {{{
-augroup filetype_vim
+augroup filetype_c_cpp
     autocmd!
-    autocmd FileType vim setlocal foldmethod=marker
+    autocmd FileType c map <F4> :e %:p:s,.h$,.X123X,:s,.c$,.h,:s,.X123X$,.c,<CR>
+    autocmd FileType cpp map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
+    autocmd FileType c,cpp nnoremap <F3> :TlistToggle<CR>
 augroup END
-" }}} 
 
 " formatting {
     set autoindent
@@ -100,3 +103,6 @@ augroup END
 " powerline
     let g:Powerline_symbols = 'unicode'
     set laststatus=2
+
+
+set hidden

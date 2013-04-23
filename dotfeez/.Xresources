@@ -1,12 +1,12 @@
 ! rxvt-unicode {
     URxvt.depth:    32
     URxvt.allow_bold: false
-    URxvt.font:     xft:DejaVu Sans Mono:size=8
-    URxvt.boldFont:     xft:DejaVu Sans Mono:size=8
+    URxvt.font:     xft:DejaVu Sans Mono:size=10
+    URxvt.boldFont:     xft:DejaVu Sans Mono:size=10
     URxvt.letterSpace: -1
     URxvt.scrollBar: false
     URxvt.perl-ext-common: default,matcher
-    URxvt.url-launcher: /usr/bin/chromium-browser
+    URxvt.url-launcher: /usr/bin/google-chrome
     URXvt.matcher.button: 1
     URxvt.colorUL: #4682B4
     URxvt.termName:     xterm-256color
