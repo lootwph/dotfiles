@@ -1,0 +1,10 @@
+Description:
+Add syntax highlighting for Qt.
+
+Git and pathogen:
+$ cd ~/.vim/bundle
+$ git clone https://bitbucket.org/kh3phr3n/vim-qt-syntax.git
+
+Original:
+http://gitorious.org/vide/scripts/blobs/master/qt-syntax/qt.vim
+

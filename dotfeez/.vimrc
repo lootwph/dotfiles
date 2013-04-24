@@ -1,20 +1,27 @@
 " vimrc 
+"
+set nocompatible
 
 " vundle 
-    set nocompatible
-    filetype off
-    set rtp+=~/.vim/bundle/vundle/
-    call vundle#rc()
+    "    filetype off
+    "set rtp+=~/.vim/bundle/vundle/
+    "call vundle"rc()
 
-    Bundle 'gmarik/vundle'
-    Bundle 'altercation/vim-colors-solarized'
-    Bundle 'Lokaltog/vim-powerline'
-    Bundle 'Lokaltog/vim-easymotion'
-    Bundle 'vim-scripts/taglist.vim'
-    Bundle 'vim-scripts/cscope.vim'
-    Bundle 'derekwyatt/vim-fswitch.git'
+    "Bundle 'gmarik/vundle'
+    "Bundle 'altercation/vim-colors-solarized'
+    "Bundle 'Lokaltog/vim-powerline'
+    "Bundle 'Lokaltog/vim-easymotion'
+    "Bundle 'vim-scripts/taglist.vim'
+    "Bundle 'vim-scripts/cscope.vim'
+    "Bundle 'derekwyatt/vim-fswitch.git'
+    "Bundle 'https://bitbucket.org/kh3phr3n/vim-qt-syntax'
 
+    "filetype plugin indent on
+
+" pathogen
+    execute pathogen#infect()
     filetype plugin indent on
+    syntax on
 
 " appearance 
     syntax on
@@ -82,9 +89,16 @@ augroup END
 
 augroup filetype_c_cpp
     autocmd!
-    autocmd FileType c map <F4> :e %:p:s,.h$,.X123X,:s,.c$,.h,:s,.X123X$,.c,<CR>
-    autocmd FileType cpp map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
     autocmd FileType c,cpp nnoremap <F3> :TlistToggle<CR>
+    autocmd FileType c,cpp nnoremap <silent> <leader>of :FSHere<cr>
+    autocmd FileType c,cpp nnoremap <silent> <leader>ol :FSRight<cr>
+    autocmd FileType c,cpp nnoremap <silent> <leader>oL :FSSplitRight<cr>
+    autocmd FileType c,cpp nnoremap <silent> <leader>oh :FSLeft<cr>
+    autocmd FileType c,cpp nnoremap <silent> <leader>oH :FSSplitLeft<cr>
+    autocmd FileType c,cpp nnoremap <silent> <leader>ok :FSAbove<cr>
+    autocmd FileType c,cpp nnoremap <silent> <leader>oK :FSSplitAbove<cr>
+    autocmd FileType c,cpp nnoremap <silent> <leader>oj :FSBelow<cr>
+    autocmd FileType c,cpp nnoremap <silent> <leader>oJ :FSSplitBelow<cr>
 augroup END
 
 " formatting {
