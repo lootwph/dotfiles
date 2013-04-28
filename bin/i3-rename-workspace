@@ -1,0 +1,4 @@
+#!/bin/bash
+
+WORKSPACE=`i3-current-workspace`
+i3-input -F "rename workspace to ${WORKSPACE}:%s" -P 'New name:' 

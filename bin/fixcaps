@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# capslock is useless
+# escape is not useless
+# this makes vi way more better
+setxkbmap -option caps:escape
