@@ -184,7 +184,6 @@ bar {
 }
 
 exec --no-startup-id urxvtd -q -f -o
-
-# always floating:
-for_window [class="Imager" instance="Imager"] floating enable
-for_window [class="fiji-Main"] floating enable
+exec --no-startup-id xfsettingsd
+exec --no-startup-id nm-applet
+exec --no-startup-id vmware-user
