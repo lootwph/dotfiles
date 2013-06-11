@@ -13,6 +13,7 @@
     Bundle 'vim-scripts/taglist.vim'
     Bundle 'vim-scripts/cscope.vim'
     Bundle 'derekwyatt/vim-fswitch.git'
+    Bundle 'davidhalter/jedi-vim'
 
     filetype plugin indent on
     syntax on
@@ -62,6 +63,11 @@
     " vimrc stuff 
     nnoremap <leader>v :vsplit $MYVIMRC<cr>
     nnoremap <leader>r :source $MYVIMRC<cr>
+
+    " better up/down
+    nnoremap j gj
+    nnoremap k gk
+
 
 
 augroup misc
