@@ -1,0 +1,8 @@
+#!/bin/bash
+xrdb -DSOLARIZED_DARK -load ~/.Xresources
+
+urxvtc "$@" -e bash -c "tmux -q has-session && exec tmux new-session -t 0 || exec tmux"
+if [ $? -eq 2 ]; then
+    urxvtd -q -o -f
+    urxvtc "$@"
+fi

@@ -16,8 +16,9 @@ bindsym $mod+q kill
     bindsym $mod+o exec dmenu_run
 
     # start terminals
-    bindsym $mod+Shift+Return exec ~/bin/light-term
-    bindsym $mod+Return exec ~/bin/dark-term
+    bindsym $mod+Shift+Return exec ~/bin/rand-term
+    bindsym $mod+Return exec ~/bin/dark-term-tmux
+    bindsym $mod+w exec ~/bin/light-term
 # }
 
 # focus {

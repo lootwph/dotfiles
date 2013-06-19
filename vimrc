@@ -29,6 +29,8 @@
     let mapleader = ","
     let maplocalleader = "\\"
 
+    nnoremap <F2> :set nonumber!<CR>
+
     noremap <leader>_ ddP
     noremap <leader>- ddp
 
