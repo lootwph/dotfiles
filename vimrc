@@ -1,11 +1,13 @@
 " vimrc 
-"
+
+
 " vundle 
     set nocompatible
     filetype off
     set rtp+=~/.vim/bundle/vundle/
     call vundle#rc()
 
+    " github repos
     Bundle 'gmarik/vundle'
     Bundle 'altercation/vim-colors-solarized'
     Bundle 'Lokaltog/vim-powerline'
@@ -14,6 +16,14 @@
     Bundle 'vim-scripts/cscope.vim'
     Bundle 'derekwyatt/vim-fswitch.git'
     Bundle 'davidhalter/jedi-vim'
+    Bundle 'sontek/minibufexpl.vim'
+    Bundle 'sjl/gundo.vim'
+    Bundle 'kien/ctrlp.vim'
+
+    " vim-scripts repos
+    Bundle 'L9'
+    Bundle 'FuzzyFinder'
+
 
     filetype plugin indent on
     syntax on
@@ -23,16 +33,32 @@
     set background=light
     call togglebg#map("<F5>")
     colorscheme solarized
+
+    " enable horizontal highlight of cursor line
+    set cursorline
+    " H to toggle
+    nnoremap H :set cursorline!<CR>
+
+    " highlight lines over 80 wide
+    "highlight OverLength ctermbg=red ctermfg=white 
+    "match OverLength /\%81v.\+/
+
+    " show vertical column at 80 instead
+    set colorcolumn=80
+
+" line numbers
+    " enable by default
     set number
+    " F2 to toggle on/off
+    nnoremap <F2> :set nonumber!<CR>
+
+" usability
+    set mouse=a
 
 " keybindings 
     let mapleader = ","
     let maplocalleader = "\\"
 
-    nnoremap <F2> :set nonumber!<CR>
-
-    noremap <leader>_ ddP
-    noremap <leader>- ddp
 
     " in insert mode, upper-case current word
     inoremap <leader><c-u> <esc> viwUi
@@ -63,10 +89,10 @@
     vnoremap <leader>' <esc>`<i'<esc>`>a'<esc>
 
     " vimrc stuff 
-    nnoremap <leader>v :vsplit $MYVIMRC<cr>
+    nnoremap <leader>v :edit $MYVIMRC<cr>
     nnoremap <leader>r :source $MYVIMRC<cr>
 
-    " better up/down
+    " better up/down on long lines
     nnoremap j gj
     nnoremap k gk
 
@@ -80,11 +106,6 @@ augroup END
 augroup filetype_python 
     autocmd!
 "    autocmd FileType python :iabbrev <buffer> if if:<left>
-augroup END
-
-augroup filetype_htm 
-    autocmd!
-    autocmd FileType html nnoremap <buffer> <localleader>f Vatzf
 augroup END
 
 augroup filetype_c_cpp
@@ -108,9 +129,6 @@ augroup END
     set tabstop=4
     set softtabstop=4
     set smarttab
-
-" abbreviations 
-    iabbrev teh the
 
 " powerline
     let g:Powerline_symbols = 'unicode'

@@ -1,6 +1,3 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
 
 # If not running interactively, don't do anything
 case $- in
@@ -56,10 +53,9 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-HOSTCOLOR="\[\033[01;35m\]"
-
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\[\033[01;35m\]\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
+    #                                                        ...........V...
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\[\033[01;31m\]\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -86,24 +82,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
-alias ll='ls -alFh'
-alias la='ls -A'
-alias l='ls -CF'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -115,22 +93,20 @@ if ! shopt -oq posix; then
   fi
 fi
 
+alias ll='ls -alFh'
+alias la='ls -A'
+alias l='ls -CF'
 alias apt-get='sudo apt-get'
 alias apt-cache='sudo apt-cache'
 alias apt-search='apt-cache --names-only search'
 alias apt-install='sudo apt-get install'
 alias apt-info='apt-cache show'
-
 alias ..='cd ..'
 alias ...='cd ../..'
 alias mode='(set -o | grep emacs.*on >/dev/null 2>&1 && echo "emacs mode" || echo "vi mode")'
 alias refresh='. ~/.bashrc'
-
-# fuzzy cd 
-function fcd() {
-    cd *$1*/
-}
+alias v='vim'
 
 [ -d $HOME/bin ] && PATH=$PATH:$HOME/bin
 [ -d $HOME/work/bin ] && PATH=$PATH:$HOME/work/bin
-
+[ -d $HOME/.bin ] && PATH=$PATH:$HOME/.bin
