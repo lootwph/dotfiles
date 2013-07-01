@@ -1,6 +1,5 @@
 " vimrc 
 
-
 " vundle 
     set nocompatible
     filetype off
@@ -10,19 +9,22 @@
     " github repos
     Bundle 'gmarik/vundle'
     Bundle 'altercation/vim-colors-solarized'
-    Bundle 'Lokaltog/vim-powerline'
-    Bundle 'Lokaltog/vim-easymotion'
     Bundle 'vim-scripts/taglist.vim'
     Bundle 'vim-scripts/cscope.vim'
-    Bundle 'derekwyatt/vim-fswitch.git'
     Bundle 'davidhalter/jedi-vim'
-    Bundle 'sontek/minibufexpl.vim'
     Bundle 'sjl/gundo.vim'
-    Bundle 'kien/ctrlp.vim'
+    " sudo pip install flake8
+    Bundle 'nvie/vim-flake8'
 
-    " vim-scripts repos
-    Bundle 'L9'
-    Bundle 'FuzzyFinder'
+    " Bundle 'L9'
+    " Bundle 'FuzzyFinder'
+    " Bundle 'Lokaltog/vim-powerline'
+    " Bundle 'Lokaltog/vim-easymotion'
+    " Bundle 'derekwyatt/vim-fswitch.git'
+    " Bundle 'sontek/minibufexpl.vim'
+    " Bundle 'kien/ctrlp.vim'
+    " Bundle 'kien/rainbow_parentheses.vim'
+    " Bundle 'Shougo/unite.vim'
 
 
     filetype plugin indent on
@@ -36,8 +38,9 @@
 
     " enable horizontal highlight of cursor line
     set cursorline
+
     " H to toggle
-    nnoremap H :set cursorline!<CR>
+    "nnoremap H :set cursorline!<CR>
 
     " highlight lines over 80 wide
     "highlight OverLength ctermbg=red ctermfg=white 
@@ -51,9 +54,13 @@
     set number
     " F2 to toggle on/off
     nnoremap <F2> :set nonumber!<CR>
+"    autocmd InsertEnter * :set number
+"    autocmd InsertLeave * :set relativenumber
+
+
 
 " usability
-    set mouse=a
+"    set mouse=a
 
 " keybindings 
     let mapleader = ","
@@ -98,15 +105,6 @@
 
 
 
-augroup misc
-    autocmd!
-    autocmd FileType text setlocal nonumber
-augroup END
-
-augroup filetype_python 
-    autocmd!
-"    autocmd FileType python :iabbrev <buffer> if if:<left>
-augroup END
 
 augroup filetype_c_cpp
     autocmd!
@@ -122,14 +120,31 @@ augroup filetype_c_cpp
     autocmd FileType c,cpp nnoremap <silent> <leader>oJ :FSSplitBelow<cr>
 augroup END
 
-" formatting 
-    set autoindent
-    set shiftwidth=4
-    set expandtab
-    set tabstop=4
-    set softtabstop=4
-    set smarttab
+augroup filetype_tex
+    autocmd!
+    " bold current word
+    autocmd FileType tex nnoremap <silent> <leader>b viw<esc>a}<esc>hbi{\bf <esc>lel
+augroup END
 
-" powerline
-    let g:Powerline_symbols = 'unicode'
+" formatting 
+set autoindent
+set shiftwidth=4
+set expandtab
+set tabstop=4
+set softtabstop=4
+set smarttab
+
+" statusbar
+"    let g:Powerline_symbols = 'unicode'
+"    set laststatus=2
+"    set encoding=utf8
+" fix slow switch from insert->normal mode
+"    set ttimeoutlen=0
+"    set statusline=%f
     set laststatus=2
+
+" disable shitty defaults
+    " don't highlight matching parentheses
+    let g:loaded_matchparen=1
+    " don't continue comments upon <cr>
+    autocmd FileType * setlocal formatoptions-=cro 
