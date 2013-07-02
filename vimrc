@@ -13,6 +13,8 @@
     Bundle 'vim-scripts/cscope.vim'
     Bundle 'davidhalter/jedi-vim'
     Bundle 'sjl/gundo.vim'
+"    Bundle 'bling/vim-bufferline'
+    Bundle 'bling/vim-airline'
     " sudo pip install flake8
     Bundle 'nvie/vim-flake8'
 
@@ -32,9 +34,9 @@
 
 " appearance 
     syntax on
-    set background=light
-    call togglebg#map("<F5>")
+    set background=dark
     colorscheme solarized
+    call togglebg#map("<F5>")
 
     " enable horizontal highlight of cursor line
     set cursorline
@@ -48,6 +50,14 @@
 
     " show vertical column at 80 instead
     set colorcolumn=80
+
+" statusbar
+"    let g:Powerline_symbols = 'unicode'
+    set laststatus=2
+    set ttimeoutlen=50
+    set t_Co=256
+    set lazyredraw 
+
 
 " line numbers
     " enable by default
@@ -134,14 +144,6 @@ set tabstop=4
 set softtabstop=4
 set smarttab
 
-" statusbar
-"    let g:Powerline_symbols = 'unicode'
-"    set laststatus=2
-"    set encoding=utf8
-" fix slow switch from insert->normal mode
-"    set ttimeoutlen=0
-"    set statusline=%f
-    set laststatus=2
 
 " disable shitty defaults
     " don't highlight matching parentheses
